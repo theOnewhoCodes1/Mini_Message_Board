@@ -7,8 +7,10 @@
 </head>
   <body>
     <h1><%= title %></h1>
-    <ul>Welcome to <%= messages.forEach(message => {
-            <li>message.text</li>
-    }); %></ul>
+    <ul>
+      <% messages.forEach(m => { %>
+          <li><%= m.user %></li>
+      <% }); %>
+  </ul>
   </body>
 </html>
