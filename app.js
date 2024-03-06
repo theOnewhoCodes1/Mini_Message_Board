@@ -6,10 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var newRouter = require('./routes/new');
 var app = express();
 
 // view engine setup
+// eslint-disable-next-line no-undef
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -17,10 +18,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/new' , newRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -28,6 +31,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
+// eslint-disable-next-line no-unused-vars
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

@@ -9,7 +9,9 @@
     <h1><%= title %></h1>
     <ul>
       <% messages.forEach(m => { %>
-          <li><%= m.user %></li>
+          <li>User: <%= m.user %></li>
+          <p>Text : <%=m.text%></p>
+          <p>Date : <%=m.added%></p>
       <% }); %>
   </ul>
   </body>
