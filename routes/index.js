@@ -18,4 +18,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' , messages : messages });
 });
 
+// eslint-disable-next-line no-unused-vars
+router.post('/new' , function(req , res , next){
+    
+  const data = req.body;
+
+
+  messages.push({text : data.message , user:data.author , added : new Date()});
+
+
+  res.redirect('/');
+});
+
 module.exports = router;
